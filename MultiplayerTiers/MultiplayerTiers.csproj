@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DebugType>embedded</DebugType>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+        <Description>A SpiderHeck mod that removes the 1 player limitation for Tiers of Heck</Description>
+        <Version>1.0.0</Version>
+        <RootNamespace>MultiplayerTiers</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GameVersion>1.0.0-r.0</GameVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BepInEx.Unity" Version="6.0.0-be.556" PrivateAssets="all" />
+        <PackageReference Include="SpiderHeck.GameLibs" Version="$(GameVersion)" PrivateAssets="all" />
+
+        <PackageReference Include="UnityEngine.Modules" Version="2020.3.13" PrivateAssets="all" />
+    </ItemGroup>
+
+    <Target Name="Copy" AfterTargets="Build" Condition="'$(SpiderHeck)' != ''">
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SpiderHeck)\BepInEx\plugins\" UseSymboliclinksIfPossible="true" />
+    </Target>
+
+</Project>
