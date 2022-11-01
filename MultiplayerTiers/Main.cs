@@ -1,18 +1,15 @@
 ﻿using BepInEx;
-using Epic.OnlineServices.Lobby;
 using HarmonyLib;
-using HarmonyLib.Tools;
-using Interfaces;
 using UnityEngine;
 
 namespace MultiplayerTiers
 {
-    [BepInPlugin(ModName, ModGUID, ModVersion)]
+    [BepInPlugin(ModGUID, ModName, ModVersion)]
     public class Main : BaseUnityPlugin
     {
         public const string ModName = "MultiplayerTiers";
         public const string ModAuthor = "Septikai";
-        public const string ModVersion = "1.0.0";
+        public const string ModVersion = "1.0.1";
         private const string ModGUID = "me.septikai.MultiplayerTiers";
         internal Harmony Harmony;
 
